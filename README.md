@@ -143,11 +143,12 @@ dvc stage add -n train \
 ```
 
 The whole point of creating this dvc.yaml file is the ability to easily reproduce a pipeline:
-
 command can be used to compare this state with an actual state of the workspace.
-
 ``` bash
 dvc status 
+dvc params diff
+dvc metrics diff
+dvc plots diff
 ```
 
 ## Reproduce
