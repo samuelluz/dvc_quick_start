@@ -114,17 +114,17 @@ A dvc.yaml file is generated. It includes information about the command we want 
 
 The command options used above mean the following:
 
-	-n prepare specifies a name for the stage. If you open the dvc.yaml file you will see a section named prepare.
+- **-n** prepare specifies a name for the stage. If you open the dvc.yaml file you will see a section named prepare.
 
-	-p prepare.seed,prepare.split defines special types of dependencies — parameters. We'll get to them later in the Metrics, Parameters, and Plots page, but the idea is that the stage can depend on field values from a parameters file (params.yaml by default):
+- **-p** prepare.seed,prepare.split defines special types of dependencies — parameters. We'll get to them later in the Metrics, Parameters, and Plots page, but the idea is that the stage can depend on field values from a parameters file (params.yaml by default):
 
-	-d src/prepare.py and -d data/data.xml mean that the stage depends on these files to work. Notice that the source code itself is marked as a dependency. If any of these files change later, DVC will know that this stage needs to be reproduced.
+- **-d** src/prepare.py and **-d** data/data.xml mean that the stage depends on these files to work. Notice that the source code itself is marked as a dependency. If any of these files change later, DVC will know that this stage needs to be reproduced.
 
-	-o data/prepared specifies an output directory for this script, which writes two files in it. This is how the workspace should look like after the run:
+- **-o** data/prepared specifies an output directory for this script, which writes two files in it. This is how the workspace should look like after the run:
 
-	The last line, python src/prepare.py data/data.xml is the command to run in this stage, and it's saved to dvc.yaml, as shown below.
+The last line, python src/prepare.py data/data.xml is the command to run in this stage, and it's saved to dvc.yaml, as shown below.
 
-	By using dvc stage add multiple times, and specifying outputs of a stage as dependencies of another one, we can describe a sequence of commands which gets to a desired result. This is what we call a data pipeline or dependency graph.
+By using dvc stage add multiple times, and specifying outputs of a stage as dependencies of another one, we can describe a sequence of commands which gets to a desired result. This is what we call a data pipeline or dependency graph.
 
 ``` bash
 dvc stage add -n featurize \
