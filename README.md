@@ -33,6 +33,7 @@ git commit -m "Add raw data"
 ```
 ## Storing and sharing
 ```bash
+# pip install 'dvc[gdrive]'
 # dvc remote add -d storage gdrive://...
 dvc remote add -d myremote /tmp/dvcstore
 dvc push
